@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dda5ijkuvaoq5"]
+
+[ext_resource type="PackedScene" uid="uid://ckdunosps0hyb" path="res://assets/models/static/statue_of_ghost.blend" id="1_5krn1"]
+
+[node name="TEST_MAIN" type="Node3D"]
+
+[node name="statue_of_ghost" parent="." instance=ExtResource("1_5krn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.431721, 0, 0.115879)
