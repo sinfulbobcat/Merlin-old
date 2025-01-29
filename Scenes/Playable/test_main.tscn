@@ -1,39 +1,105 @@
-[gd_scene load_steps=5 format=3 uid="uid://dda5ijkuvaoq5"]
+[gd_scene load_steps=12 format=3 uid="uid://dda5ijkuvaoq5"]
 
-[ext_resource type="PackedScene" uid="uid://ckdunosps0hyb" path="res://assets/models/static/statue_of_ghost.blend" id="1_5krn1"]
+[ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://plugins/demo/data/assets.tres" id="2_twcuc"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_aagsa"]
+[ext_resource type="PackedScene" uid="uid://cx5g3pten1li0" path="res://assets/models/static/statue_of_ghost.glb" id="3_j0mjj"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fsof"]
-sky_top_color = Color(0.426864, 0.80962, 1, 1)
-sky_horizon_color = Color(0.77237, 0.618146, 0.531217, 1)
-sky_curve = 0.121838
-ground_bottom_color = Color(0.00796215, 0, 0.149169, 1)
-ground_horizon_color = Color(0.772549, 0.619608, 0.529412, 1)
-ground_curve = 0.0348221
-sun_angle_max = 95.91
-sun_curve = 0.166436
+[sub_resource type="Gradient" id="Gradient_bjxfa"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="Sky" id="Sky_fim8f"]
-sky_material = SubResource("ProceduralSkyMaterial_7fsof")
-process_mode = 2
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i3tkw"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
 
-[sub_resource type="Environment" id="Environment_f1qr0"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jpbpi"]
+seamless = true
+color_ramp = SubResource("Gradient_bjxfa")
+noise = SubResource("FastNoiseLite_i3tkw")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_q1aqv"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_jpbpi"),
+"vertex_normals_distance": 128.0
+}
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_swgmo"]
+sky_top_color = Color(0.203692, 0.620353, 0.907461, 1)
+sky_horizon_color = Color(0.490239, 0.688634, 0.776993, 1)
+sky_curve = 0.289781
+ground_bottom_color = Color(0.0365129, 0.168742, 0.349222, 1)
+ground_horizon_color = Color(0.490196, 0.690196, 0.776471, 1)
+ground_curve = 0.0492458
+sun_angle_max = 65.56
+
+[sub_resource type="Sky" id="Sky_k6j5c"]
+sky_material = SubResource("ProceduralSkyMaterial_swgmo")
+
+[sub_resource type="Environment" id="Environment_d28jy"]
 background_mode = 2
-sky = SubResource("Sky_fim8f")
-tonemap_mode = 1
-glow_enabled = true
+sky = SubResource("Sky_k6j5c")
+tonemap_mode = 3
 fog_enabled = true
-fog_light_color = Color(0.314839, 0.584972, 0.735564, 1)
-fog_light_energy = 0.1
-fog_sun_scatter = 0.14
-fog_density = 0.063
-fog_aerial_perspective = 0.09
-fog_sky_affect = 0.3
-adjustment_enabled = true
+fog_light_color = Color(0.376983, 0.590218, 0.631567, 1)
+fog_light_energy = 1.65
+fog_sun_scatter = 0.1
+fog_density = 0.006
+fog_aerial_perspective = 0.105
+fog_sky_affect = 0.168
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_8etfd"]
+auto_exposure_enabled = true
 
 [node name="TEST_MAIN" type="Node3D"]
 
-[node name="statue_of_ghost" parent="." instance=ExtResource("1_5krn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.431721, 0, 0.115879)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.252136)
+size = Vector3(38.2119, 1, 32.9818)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://terrain_data"
+material = SubResource("Terrain3DMaterial_q1aqv")
+assets = ExtResource("2_twcuc")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="statue_of_ghost" parent="." instance=ExtResource("3_j0mjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305017, 4.43988, -0.772828)
+
+[node name="Cube_001" parent="statue_of_ghost" index="7"]
+transform = Transform3D(2.2094, 0, 0, 0, 2.54228, 0, 0, 0, 2.2094, 0, 6.07882, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_aagsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3013, 4.62547, -0.332485)
+walk_speed = 3.745
+sprint_speed = 13.375
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_f1qr0")
+environment = SubResource("Environment_d28jy")
+camera_attributes = SubResource("CameraAttributesPhysical_8etfd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.664996, 0.746847, 0, -0.746847, 0.664996, -3.35006, 0, 0)
+shadow_enabled = true
+shadow_blur = 0.404
+
+[editable path="statue_of_ghost"]
