@@ -39,6 +39,7 @@ _shader_parameters = {
 "noise_texture": SubResource("NoiseTexture2D_jpbpi"),
 "vertex_normals_distance": 128.0
 }
+show_region_grid = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_swgmo"]
 sky_top_color = Color(0.203692, 0.620353, 0.907461, 1)
@@ -79,6 +80,8 @@ size = Vector3(38.2119, 1, 32.9818)
 data_directory = "res://terrain_data"
 material = SubResource("Terrain3DMaterial_q1aqv")
 assets = ExtResource("2_twcuc")
+show_grid = true
+mesh_lods = 8
 top_level = true
 metadata/_edit_lock_ = true
 
