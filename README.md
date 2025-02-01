@@ -1,5 +1,6 @@
 
-![Logo](https://media.discordapp.net/attachments/1005318111668482210/1333851845617127444/Sprite-0001.png?ex=679a65d5&is=67991455&hm=1d8eb6a1dcd8264c238f820567fc83d140c760fe6dbce8b911ac79ae5e9e9edc&=&format=webp&quality=lossless&width=729&height=410)
+![Logo](![image](https://github.com/user-attachments/assets/89fa880a-ad81-4ac2-b4f7-83ab1ee2bb4f)
+)
 
 
 
