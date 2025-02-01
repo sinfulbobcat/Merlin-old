@@ -74,8 +74,3 @@ This project is licensed under the MIT License. See `LICENSE` for more details.
 For any inquiries or feedback, reach out via [Discord]([your-discord-link](https://discord.gg/Kf7qXdCspv)) or open an issue in the repository.
 
 Embark on your journey and become the legend of **Merlin**!
-
-
-
-
-
