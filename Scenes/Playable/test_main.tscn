@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dda5ijkuvaoq5"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://plugins/demo/data/assets.tres" id="2_twcuc"]
-[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_aagsa"]
+[ext_resource type="PackedScene" uid="uid://pwopau2aoj01" path="res://Scenes/player.tscn" id="3_aagsa"]
 [ext_resource type="PackedScene" uid="uid://cx5g3pten1li0" path="res://assets/models/static/statue_of_ghost.glb" id="3_j0mjj"]
 
 [sub_resource type="Gradient" id="Gradient_bjxfa"]
