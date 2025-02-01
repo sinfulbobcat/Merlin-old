@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8cx4xjwluvxw"
-path="res://.godot/imported/RockC.glb-7969286bf834629480991398b2438931.scn"
+uid="uid://c1hxei7m08p7i"
+path="res://.godot/imported/grass.glb-a67b68e72504db5872258d2efcf37c47.scn"
 
 [deps]
 
-source_file="res://plugins/demo/assets/models/RockC.glb"
-dest_files=["res://.godot/imported/RockC.glb-7969286bf834629480991398b2438931.scn"]
+source_file="res://assets/models/static/grass.glb"
+dest_files=["res://.godot/imported/grass.glb-a67b68e72504db5872258d2efcf37c47.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -32,12 +32,17 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
-"materials": {
-"@MATERIAL:0": {
-"use_external/enabled": true,
-"use_external/path": "res://demo/assets/materials/M_rock30.tres"
+"meshes": {
+"grass_Plane_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Grass Mesh/grass.res"
 }
 }
 }
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1
